@@ -8,3 +8,7 @@ information needed for setup:
 6. serial timeout
 
 """
+Following python scripts need to be run simultaneously (batch file can be created):
+1. final.py
+2. server.py
+3. data_collection.py
