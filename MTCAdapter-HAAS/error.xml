@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MTConnectError xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header bufferSize="1000" creationTime="2017-06-09T15:13:20.962000Z" instanceID="5" instanceId="2" sender="DMZ-MTCNCT" version="1.3.0.17" />
+  <Errors>
+    <Error errorCode="UNSUPPORTED">The following path is invalid: /favicon.ico .</Error>
+  </Errors>
+</MTConnectError>

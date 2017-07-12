@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MTConnectDevices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header bufferSize="1000" creationTime="2017-06-09T15:49:36.334000Z" instanceId="5" sender="MTC_HAAS" version="1.3" />
+  <Devices>
+    <Device id="d1" name="HAAS-VF2" uuid="VF2-1103225">
+      <Description serialNumber="1103225">HAAS-VF2</Description>
+      <DataItems>
+        <DataItem category="EVENT" id="avail" type="AVAILABILITY" />
+        <DataItem category="EVENT" id="functionalmode" name="functionalmode" type="FUNCTIONAL_MODE" />
+      </DataItems>
+      <Components>
+        <Rotary id="c1" name="C">
+              <DataItems>
+                <DataItem category="SAMPLE" id="cs" name="Srpm" nativeUnits="REVOLUTION/MINUTE" subType="ACTUAL" type="ROTARY_VELOCITY" units="REVOLUTION/MINUTE" />
+                  <Constraints>
+                    <Value>SPINDLE</Value>
+                  </Constraints>
+              </DataItems>
+        </Rotary>
+		<Linear id="x" name="X">
+              <DataItems>
+                <DataItem category="SAMPLE" id="xp" name="XAbs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER" />
+                  <Constraints>
+                    <Value>LINEAR_X</Value>
+                  </Constraints>
+              </DataItems>
+        </Linear>
+		<Linear id="y" name="Z">
+              <DataItems>
+                <DataItem category="SAMPLE" id="yp" name="YAbs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER" />
+                  <Constraints>
+                    <Value>LINEAR_Y</Value>
+                  </Constraints>
+              </DataItems>
+        </Linear>
+		<Linear id="z" name="Z">
+              <DataItems>
+                <DataItem category="SAMPLE" id="zp" name="ZAbs" nativeUnits="MILLIMETER" subType="ACTUAL" type="POSITION" units="MILLIMETER" />
+                  <Constraints>
+                    <Value>LINEAR_Z</Value>
+                  </Constraints>
+              </DataItems>
+        </Linear>
+        <Controller id="cont" name="controller">
+          <DataItems>
+            <DataItem category="EVENT" id="estop" name="estop" type="EMERGENCY_STOP" />
+          </DataItems>
+          <Components>
+            <Path id="path1" name="path">
+              <DataItems>
+                <DataItem category="EVENT" id="pgm" name="program" type="PROGRAM" />
+                <DataItem category="EVENT" id="pc" name="PartCountAct" type="PART_COUNT" />
+                <DataItem category="EVENT" id="exec" name="execution" type="EXECUTION" />
+                <DataItem category="SAMPLE" id="atime" name="auto_time" subType="x:AUTO" type="ACCUMULATED_TIME" />
+                <DataItem category="SAMPLE" id="yltime" name="total_time" subType="x:TOTAL" type="ACCUMULATED_TIME" />
+                <DataItem category="SAMPLE" id="ctime" name="cut_time" subType="x:CUT" type="ACCUMULATED_TIME" />
+              </DataItems>
+            </Path>
+          </Components>
+        </Controller>
+        <Systems id="systems" name="systems">
+          <Components>
+            <Electric id="elec" name="electric">
+              <DataItems>
+                <DataItem category="EVENT" id="pwr" name="power" type="POWER_STATE" />
+              </DataItems>
+            </Electric>
+          </Components>
+        </Systems>
+      </Components>
+    </Device>
+  </Devices>
+</MTConnectDevices>
