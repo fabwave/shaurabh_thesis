@@ -1,0 +1,45 @@
+1. buy the entire raspberry pi set at
+	https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY/ref=sr_1_2/135-5132430-7726449?ie=UTF8&qid=1494618275&sr=8-2-spons&keywords=canakit+raspberry+pi+3+starter+kit&psc=1
+
+2. format the sd card using SDformatter
+
+3. write raspbian jessie using Win32DiskImager
+
+4. connect it to a monitor (with the right resolution), keyboard and mouse, through the HDMI port and USB ports respectively.
+
+5. open a terminal and type 'ifconfig' and note down the mac address of the PI and get it registered to the network.
+
+6. execute
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo pip install --upgrade pip
+	sudo apt install libpq-dev python-dev
+	sudo pip install psycopg2
+
+7. install tightvncserver on the PI as well as your personal system from which you want to access the pi remotely.
+	execute for linux:
+		sudo apt-get install tightvncserver
+		vncserver #to setup the password
+		tightvncserver #to initialize the server; also note down the ipaddress information which will be in the form of raspberrypi:1 or :2 or so on. 
+		#raspberrypi:1 is supposed to be used as IPADDRESS:1 under remote host in tightvncviewer on the user system.
+		#tutorials for tighvncserver can be found on youtube easily.
+	if you restart and want to setup the server again you can do it as mentioned above or use putty to login through ssh and type "tightvncserver" to initialize.
+
+8. enable ssh and serial in the configuration window by following steps on
+	http://www.instructables.com/id/Read-and-write-from-serial-port-with-Raspberry-Pi/
+
+	simply open configuration window by typing the following command
+		sudo raspi-config
+
+9. create a directory and download and extract all the files from 
+	https://github.com/ssingh23/shaurabh_thesis/tree/master/MTCAdapter-HAAS
+
+10. Connect the raspberry pi to the HAAS machine using the cables that can be purchased through the following links:
+	Null modem cable: 
+	http://www.amazon.com/StarTech-com-10-Feet-Cross-Wired-Serial/dp/B00066HL50/ref=sr_1_1?s=electronics&ie=UTF8&qid=1445375930&sr=1-1&keywords=db9+to+db25+null
+	RS 232
+	http://www.amazon.com/Plugable-Adapter-Prolific-PL2303HX-Chipset/dp/B00425S1H8
+
+11. Once you connect the raspberry pi, start the tightvncserver.
+
+12. Using the tightvncserver remote interface run final.py, server.py and data_collection.py simultaneously and endlessly. #can also create a batch file to do  the same.
