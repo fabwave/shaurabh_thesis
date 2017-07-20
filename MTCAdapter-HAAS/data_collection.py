@@ -76,7 +76,7 @@ while True:
             serial_number+=1
     
             conn.rollback()
-            cur.execute("INSERT INTO machine_status VALUES (%s,%s,%s,%s,%s,%s,%s,%s);",(str(uuid)+": "+str(serial_number),str(timestamp),str(machine_name),str(machine_status),str(cutting_status),str(part_number),str(program_number),str(part_name)))
+            cur.execute("INSERT INTO login VALUES (%s,%s,%s,%s,%s,%s,%s,%s);",(str(uuid)+": "+str(serial_number),str(timestamp),str(machine_name),str(machine_status),str(cutting_status),str(part_number),str(program_number),str(part_name)))
             conn.commit()
     
 
@@ -110,7 +110,7 @@ while True:
                     text=y.text
                     if "Accumulated" not in param:
                         conn.rollback()
-                        cur.execute("INSERT INTO machine_datastream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
+                        cur.execute("INSERT INTO componentstream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
                         conn.commit()
                     macoff=0
         
