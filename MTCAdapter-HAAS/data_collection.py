@@ -108,10 +108,10 @@ while True:
                         param=''
                     
                     text=y.text
-                    
-                    conn.rollback()
-                    cur.execute("INSERT INTO machine_datastream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
-                    conn.commit()
+                    if "Accumulated" not in param:
+                        conn.rollback()
+                        cur.execute("INSERT INTO machine_datastream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
+                        conn.commit()
                     macoff=0
         
                 
