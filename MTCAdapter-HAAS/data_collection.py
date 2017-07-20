@@ -10,11 +10,11 @@ serial_number=1
 
 #define server input parameters here
 #---------------------
-host='13.84.183.46'
+host='13.84.XXX.XX'
 port=5432
 dbname='ncstate'
 user='ncstate'
-password='ohToapiegei7'
+password='XXXXXXX'
 #---------------------
 con="""host='"""+str(host)+"""' port="""+str(port)+""" dbname='"""+str(dbname)+"""' user='"""+str(user)+"""' password='"""+str(password)+"""'"""
 conn=psycopg2.connect(con)
