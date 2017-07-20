@@ -129,7 +129,7 @@ if True:
             ser.write(b"Q600 5041\r")
             xaxis=ser.readline()
             try:
-                xaxis=str(int(float(xaxis[15:(len(xaxis)-3)])))
+                xaxis=str(float(xaxis[15:(len(xaxis)-3)]))
                 if len(xaxis)>0 and xaxis!=xaxis_in:
                     sequence+=1
                     if seq_first_in!=seq_first:
@@ -145,7 +145,7 @@ if True:
             ser.write(b"Q600 5042\r")
             yaxis=ser.readline()
             try:
-                yaxis=str(int(float(yaxis[15:(len(yaxis)-3)])))
+                yaxis=str(float(yaxis[15:(len(yaxis)-3)]))
                 if len(yaxis)>0 and yaxis!=yaxis_in:
                     sequence+=1
                     if seq_first_in!=seq_first:
@@ -161,7 +161,7 @@ if True:
             ser.write(b"Q600 5043\r")
             zaxis=ser.readline()
             try:
-                zaxis=str(int(float(zaxis[15:(len(zaxis)-3)])))
+                zaxis=str(float(zaxis[15:(len(zaxis)-3)]))
                 if len(zaxis)>0 and zaxis!=zaxis_in:
                     sequence+=1
                     if seq_first_in!=seq_first:
