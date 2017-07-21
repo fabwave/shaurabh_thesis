@@ -556,7 +556,8 @@ if True:
                 rootp[0].attrib['bufferSize']=str(buffer_size)
                 probe=ET.ElementTree(rootp)
                 probe.write('probe.xml',encoding='utf-8',xml_declaration=True)
-                #asset update
+                """
+                #asset update~work in progress
                 asset = ET.parse('asset.xml')
                 roota = probe.getroot()
                 roota.attrib['xmlns:xsi']="http://www.w3.org/2001/XMLSchema-instance"
@@ -565,6 +566,7 @@ if True:
                 roota[0].attrib['bufferSize']=str(buffer_size)
                 asset=ET.ElementTree(roota)
                 asset.write('asset.xml',encoding='utf-8',xml_declaration=True)
+                """
 
                 
         if False:
