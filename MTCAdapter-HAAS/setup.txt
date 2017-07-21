@@ -2,8 +2,10 @@
 	https://www.amazon.com/CanaKit-Raspberry-Complete-Starter-Kit/dp/B01C6Q2GSY/ref=sr_1_2/135-5132430-7726449?ie=UTF8&qid=1494618275&sr=8-2-spons&keywords=canakit+raspberry+pi+3+starter+kit&psc=1
 
 2. format the sd card using SDformatter
+	https://www.sdcard.org/downloads/formatter_4/
 
 3. write raspbian jessie using Win32DiskImager
+	https://sourceforge.net/projects/win32diskimager/
 
 4. connect it to a monitor (with the right resolution), keyboard and mouse, through the HDMI port and USB ports respectively.
 
