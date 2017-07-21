@@ -6,6 +6,7 @@ cutting_status_in='NA'
 cutting_status=''
 macoff=0
 serial_number=1
+creationTime="NA"
 #------------------
 
 #define server input parameters here
@@ -85,33 +86,34 @@ while True:
                 creationTime=x.attrib['creationTime']
     
             for x in root.iter('Samples'):
-                for y in x:
-                    try:
-                        dataitemId=y.attrib['dataItemId']
-                    except:
-                        dataitemId=''
-                    try:
-                        sequence=y.attrib['sequence']
-                    except:
-                        sequence=''
-                    try:
-                        timestamp=y.attrib['timestamp']
-                    except:
-                        timestamp=''
-                    try:
-                        name=y.attrib['name']
-                    except:
-                        name=''
-                    try:
-                        param=str(y).split(' ')[1]
-                    except:
-                        param=''
-                    
-                    text=y.text
-                    if "Accumulated" not in param:
-                        conn.rollback()
-                        cur.execute("INSERT INTO componentstream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
-                        conn.commit()
+                if creationTime!=creationTime_in:
+                    for y in x:
+                        try:
+                            dataitemId=y.attrib['dataItemId']
+                        except:
+                            dataitemId=''
+                        try:
+                            sequence=y.attrib['sequence']
+                        except:
+                            sequence=''
+                        try:
+                            timestamp=y.attrib['timestamp']
+                        except:
+                            timestamp=''
+                        try:
+                            name=y.attrib['name']
+                        except:
+                            name=''
+                        try:
+                            param=str(y).split(' ')[1]
+                        except:
+                            param=''
+                        
+                        text=y.text
+                        if "Accumulated" not in param:
+                            conn.rollback()
+                            cur.execute("INSERT INTO componentstream VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s);",(str(part_number),str(machine_name),str(creationTime),str(param),str(sequence),str(timestamp),str(dataitemId),str(name),str(text)))
+                            conn.commit()
                     macoff=0
         
                 
