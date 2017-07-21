@@ -20,6 +20,9 @@ if True:
     count_con=0
     count_rot=0
     count_pow=0
+    count_posx=0
+    count_posy=0
+    count_posz=0
     
     data_dict=open('data_interaction.txt','r')
     data_interaction=data_dict.readlines()
@@ -165,6 +168,63 @@ if True:
             RotaryVelocity.attrib['sequence']=y[4]
             RotaryVelocity.attrib['name']=y[3]
             RotaryVelocity.attrib['subType']=y[5]
+            
+        if count_posx==0 and y[0]=="Position":
+            #Component Stream for position
+            ComponentStream_pos=ET.SubElement(DeviceStream,"ComponentStream")
+            ComponentStream_pos.attrib['component']='Linear'
+            ComponentStream_pos.attrib['name']='X'
+            ComponentStream_pos.attrib['componentId']='x'
+            #sample for position
+            Samples_pos=ET.SubElement(ComponentStream_pos,"Samples")
+            count_posx=1
+
+        if y[0]=="Position":
+            Position=ET.SubElement(Samples_pos,"Position")
+            Position.text=y[6]
+            Position.attrib['dataItemId']=y[1]
+            Position.attrib['timestamp']=y[2]
+            Position.attrib['sequence']=y[4]
+            Position.attrib['name']=y[3]
+            Position.attrib['subType']=y[5]
+
+        if count_posy==0 and y[0]=="Position":
+            #Component Stream for position
+            ComponentStream_pos=ET.SubElement(DeviceStream,"ComponentStream")
+            ComponentStream_pos.attrib['component']='Linear'
+            ComponentStream_pos.attrib['name']='Y'
+            ComponentStream_pos.attrib['componentId']='y'
+            #sample for position
+            Samples_pos=ET.SubElement(ComponentStream_pos,"Samples")
+            count_posy=1
+
+        if y[0]=="Position":
+            Position=ET.SubElement(Samples_pos,"Position")
+            Position.text=y[6]
+            Position.attrib['dataItemId']=y[1]
+            Position.attrib['timestamp']=y[2]
+            Position.attrib['sequence']=y[4]
+            Position.attrib['name']=y[3]
+            Position.attrib['subType']=y[5]
+
+        if count_posz==0 and y[0]=="Position":
+            #Component Stream for position
+            ComponentStream_pos=ET.SubElement(DeviceStream,"ComponentStream")
+            ComponentStream_pos.attrib['component']='Linear'
+            ComponentStream_pos.attrib['name']='Z'
+            ComponentStream_pos.attrib['componentId']='z'
+            #sample for position
+            Samples_pos=ET.SubElement(ComponentStream_pos,"Samples")
+            count_posz=1
+
+        if y[0]=="Position":
+            Position=ET.SubElement(Samples_pos,"Position")
+            Position.text=y[6]
+            Position.attrib['dataItemId']=y[1]
+            Position.attrib['timestamp']=y[2]
+            Position.attrib['sequence']=y[4]
+            Position.attrib['name']=y[3]
+            Position.attrib['subType']=y[5]
          
     tree = ET.ElementTree(root)
     
